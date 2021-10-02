@@ -4,12 +4,14 @@ CC = gcc
 CFLAGS  =  -lpthread
 
 # the build target executable:
-TARGET = output
+TARGET_server = server
+TARGET_client = client
 
-all: $(TARGET)
+server: 
+	$(CC) server.c server.h -o $(TARGET_server) $(CFLAGS) 
 
-$(TARGET): 
-	$(CC) *.c *.h -o $(TARGET) $(CFLAGS) 
+client: 
+	$(CC) client.c client.h -o $(TARGET_client) $(CFLAGS)
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(TARGET_server) $(TARGET_client)

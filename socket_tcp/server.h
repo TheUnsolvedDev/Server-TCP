@@ -8,8 +8,8 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 
-#define MAX_CLIENT 5
-#define BASE_PORT 1234
+#define MAX_CLIENT 10
+#define BASE_PORT 5000
 #define ADDR_LEN sizeof(struct sockaddr_in)
 
 typedef struct
@@ -22,5 +22,6 @@ typedef struct
 } ServerInstance;
 
 void create_server_instance(void);
-
+void *thread_func(void *thread_number);
 void signal_handler(int signal_number);
+void server_close(void);
