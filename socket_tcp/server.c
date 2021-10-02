@@ -40,7 +40,7 @@ void create_server_instance(void)
 			exit(EXIT_FAILURE);
 		}
 
-		if ((server_obj[client_number + 1].socketfd = accept(server_obj[client_number].socketfd, (struct sockaddr *)&server_obj[client_number].server_socket, (socklen_t *)&length)) < 0)
+		if ((server_obj[client_number].acceptfd = accept(server_obj[client_number].socketfd, (struct sockaddr *)&server_obj[client_number].server_socket, (socklen_t *)&length)) < 0)
 		{
 			perror("Accept! \n");
 			exit(0);
